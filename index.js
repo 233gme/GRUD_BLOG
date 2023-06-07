@@ -1,10 +1,9 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import multer from 'multer';
 
-import checkAuth from './utils/checkAuth.js';
-
-import * as UserController from './controllers/UserController.js';
-import * as PostController from './controllers/PostController.js';
+import { checkAuth, handleValidationError } from './utils/index.js';
+import { PostController, UserController } from './controllers/index.js';
 
 import { loginValidation, registerValidation } from './validations/auth.js';
 import { postCreateValidation } from './validations/post.js';
@@ -21,27 +20,69 @@ mongoose.connect(
 
 const app = express();
 
+const storage = multer.diskStorage({
+  destination: (_, __, cb) => {
+    cb(null, 'uploads');
+  },
+  filename: (_, file, cb) => {
+    cb(null, file.originalname);
+  }
+});
+
+const upload = multer({ storage });
+
 app.use(express.json());
+app.use('/uploads', express.static('uploads'));
 
 app.get('/', (req, res) => {
   res.send('Hello world');
 });
 
 // auth
-app.post('/auth/login', loginValidation, UserController.login);
-app.post('/auth/register', registerValidation, UserController.register);
+app.post(
+  '/auth/login',
+  loginValidation,
+  handleValidationError,
+  UserController.login
+);
+app.post(
+  '/auth/register',
+  registerValidation,
+  handleValidationError,
+  UserController.register
+);
 app.get('/auth/me', checkAuth, UserController.getMe);
 
 // posts
 app.get('/posts', postCreateValidation, PostController.getAllPosts);
 app.get('/posts/:id', postCreateValidation, PostController.getPost);
-app.post('/posts', checkAuth, postCreateValidation, PostController.createPost);
+app.post(
+  '/posts',
+  checkAuth,
+  postCreateValidation,
+  handleValidationError,
+  PostController.createPost
+);
 app.delete(
-  '/posts/:id', checkAuth, postCreateValidation, PostController.deletePost
+  '/posts/:id',
+  checkAuth,
+  postCreateValidation,
+  PostController.deletePost
 );
 app.patch(
-  '/posts/:id', checkAuth, postCreateValidation, PostController.updatePost
+  '/posts/:id',
+  checkAuth,
+  postCreateValidation,
+  handleValidationError,
+  PostController.updatePost
 );
+
+// images
+app.post('/uploads', checkAuth, upload.single('image'), (req, res) => {
+  res.json({
+    url: `/uploads/${req.file.originalname}`
+  });
+});
 
 // start
 app.listen(4444, (err) => {
