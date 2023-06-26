@@ -8,11 +8,7 @@ import { PostController, UserController } from './controllers/index.js';
 import { loginValidation, registerValidation } from './validations/auth.js';
 import { postCreateValidation } from './validations/post.js';
 
-mongoose.connect(
-  'mongodb+srv://mogafior_admin:' +
-  'D5VKko7lA90X27BK@mogafior.gtopwco.mongodb.net/' +
-  'mogafior?retryWrites=true&w=majority'
-).then(() => {
+mongoose.connect('mongodb+srv://blog_server:M3F7DJWI8XB3oImt@cluster0.gbue4f3.mongodb.net/?retryWrites=true&w=majority').then(() => {
   console.log('OK MongoDB\n');
 }).catch((err) => {
   console.log('DB ERROR', err);
