@@ -86,5 +86,5 @@ app.listen(4444, (err) => {
     return console.log('Server Error', err);
   }
 
-  console.log('OK Mogafior server\n');
+  console.log('OK server\n');
 });

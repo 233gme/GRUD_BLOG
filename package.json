@@ -1,7 +1,7 @@
 {
   "name": "mogafior_server",
   "version": "1.0.0",
-  "description": "mogafior shop server",
+  "description": "blog server",
   "main": "index.js",
   "type": "module",
   "scripts": {
