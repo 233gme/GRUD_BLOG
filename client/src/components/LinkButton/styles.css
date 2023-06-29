@@ -1,0 +1,19 @@
+.link {
+    display: block;
+}
+
+.btn {
+    padding: 6px 24px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 700;
+    border: 1px solid var(--black);
+    color: var(--black);
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: all linear 0.3s;
+}
+
+.btn:hover {
+    box-shadow: var(--black) 1px 1px;
+}
