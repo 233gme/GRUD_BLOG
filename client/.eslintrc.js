@@ -12,7 +12,6 @@ module.exports = {
   },
   extends: [
     'plugin:react/recommended',
-    'airbnb',
   ],
   overrides: [],
   parserOptions: {
@@ -23,6 +22,9 @@ module.exports = {
     'react',
   ],
   rules: {
+    // 'react/jsx-curly-spacing': [2, 'always'],
+    'object-curly-spacing': ['error', 'always'],
+    'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
     semi: ['error', 'always'],
     quotes: ['error', 'single'],
