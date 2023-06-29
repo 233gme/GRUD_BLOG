@@ -1,11 +1,17 @@
-import './style.css';
+import './styles.css';
+import { Link } from 'react-router-dom';
+import Button from 'components/Button';
 
-const Header = () => {
+function Header() {
   return (
-    <div className={'header container'}>
-      <h1>BLOG</h1>
+    <div className="header container">
+      <Link to="/"><h1>BLOG</h1></Link>
+      <div className="btn_block">
+        <Button type={'pink'}>{'SingUp'}</Button>
+        <Button>{'LogIn'}</Button>
+      </div>
     </div>
-  )
+  );
 }
 
 export default Header;

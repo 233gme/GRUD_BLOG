@@ -1,0 +1,15 @@
+.header {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--black);
+    border-radius: var(--r-block);
+    height: 60px;
+}
+
+.btn_block {
+    display: flex;
+    gap: 10px;
+}
