@@ -1,13 +1,16 @@
 import './App.css';
 
 import { Route, Routes } from 'react-router-dom';
+import { useTheme } from './components/shared/providers';
 
-import Header from 'components/Header';
+import Header from 'components/widgets/Header';
 import { Home, NotFound } from './pages';
 
 function App() {
+  const { theme } = useTheme();
+
   return (
-    <div className="App">
+    <div className={`App ${theme}`}>
       <Header/>
       <Routes>
         <Route path={'/'} element={<Home/>}/>

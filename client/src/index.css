@@ -1,13 +1,4 @@
 :root {
-    --primary: #066FA5;
-    --secondary: #005792;
-    --black: #181A19;
-    --white: #F4F4F4;
-    --green: #11CD86;
-    --pink: #F70044;
-    --yellow: #F6D600;
-    --bg: #f9f8fd;
-
     --r-block: 9px;
     --r-section: 5px;
 }
@@ -18,9 +9,25 @@
     box-sizing: border-box;
 }
 
+.dark {
+    --white: #08182b;
+    --black: #f4f4f4;
+    --pink: #E73A38;
+    --yellow: #FE9000;
+    --blue: #4695d6;
+    --bg: #08182b;
+}
+
+.light {
+    --white: #f4f4f4;
+    --black: #08182b;
+    --pink: #ee2560;
+    --yellow: #fecc36;
+    --blue: #45d9fd;
+    --bg: #f4f4f4;
+}
+
 body {
-    background-color: var(--bg);
-    color: var(--black);
     font-family: "DM Sans", 'Droid Sans', 'Helvetica Neue', sans-serif;
     line-height: 1.5;
     font-weight: normal;
@@ -30,7 +37,7 @@ body {
 
 a {
     text-decoration: none;
-    color: #000;
+    color: var(--black);
 }
 
 h1 {
@@ -44,8 +51,6 @@ h1 {
     padding: 10px 20px;
     margin: 10px auto;
     overflow: hidden;
-    border: 1px solid var(--black);
-    border-radius: var(--r-block);
 }
 
 @media screen and (min-width: 480px) {
