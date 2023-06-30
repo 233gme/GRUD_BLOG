@@ -1,12 +1,13 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import multer from 'multer';
+import cors from 'cors';
 
-import { checkAuth, handleValidationError } from './utils/index.js';
-import { PostController, UserController } from './controllers/index.js';
+import {checkAuth, handleValidationError} from './utils/index.js';
+import {PostController, UserController} from './controllers/index.js';
 
-import { loginValidation, registerValidation } from './validations/auth.js';
-import { postCreateValidation } from './validations/post.js';
+import {loginValidation, registerValidation} from './validations/auth.js';
+import {postCreateValidation} from './validations/post.js';
 
 mongoose.connect('mongodb+srv://blog_server:M3F7DJWI8XB3oImt@cluster0.gbue4f3.mongodb.net/?retryWrites=true&w=majority').then(() => {
   console.log('OK MongoDB\n');
@@ -25,9 +26,10 @@ const storage = multer.diskStorage({
   }
 });
 
-const upload = multer({ storage });
+const upload = multer({storage});
 
 app.use(express.json());
+app.use(cors());
 app.use('/uploads', express.static('uploads'));
 
 app.get('/', (req, res) => {
