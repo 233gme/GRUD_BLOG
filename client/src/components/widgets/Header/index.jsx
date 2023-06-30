@@ -1,9 +1,8 @@
 import './styles.css';
 import { Link } from 'react-router-dom';
-import MoonIcon from 'components/shared/assets/icons/moon';
-import SunIcon from 'components/shared/assets/icons/sun';
-import Button from 'components/widgets/Button';
+import Button from 'components/shared/ui/Button';
 import { useTheme } from 'components/shared/providers';
+import ThemeSwitcher from 'components/shared/ui/ThemeSwitcher';
 
 function Header() {
   const { theme, toggleTheme } = useTheme();
@@ -12,7 +11,7 @@ function Header() {
     <div className="header container">
       <Link to="/"><h1>BLOG</h1></Link>
       <div className="btn_block">
-        <Button action={toggleTheme} type={'round'}>{theme === 'light' ? <MoonIcon/> : <SunIcon/>}</Button>
+        <ThemeSwitcher/>
         <Button type={'pink'}>{'SingUp'}</Button>
         <Button>{'LogIn'}</Button>
       </div>
