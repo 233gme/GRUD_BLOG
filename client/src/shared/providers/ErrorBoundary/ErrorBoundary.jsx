@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import { ErrorPage } from 'pages/index';
-import Loader from 'shared/ui/Loader';
+import PageLoader from '../../../widgets/PageLoader';
 
 class ErrorBoundary
   extends React.Component {
@@ -22,7 +22,7 @@ class ErrorBoundary
     const { children } = this.props;
     if (hasError) {
       return (
-        <Suspense fallback={<Loader/>}>
+        <Suspense fallback={<PageLoader/>}>
           <ErrorPage/>
         </Suspense>
       );

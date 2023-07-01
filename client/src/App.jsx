@@ -1,10 +1,7 @@
 import './App.css';
-
-import { Route, Routes } from 'react-router-dom';
 import { useTheme } from 'shared/providers';
-
 import Header from 'widgets/Header';
-import { Home, NotFound } from './pages';
+import AppRouter from './shared/providers/AppRouter/AppRouter';
 
 function App() {
   const { theme } = useTheme();
@@ -12,10 +9,7 @@ function App() {
   return (
     <div className={`App ${theme}`}>
       <Header/>
-      <Routes>
-        <Route path={'/'} element={<Home/>}/>
-        <Route path={'*'} element={<NotFound/>}/>
-      </Routes>
+      <AppRouter/>
     </div>
   );
 }
