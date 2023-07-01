@@ -12,7 +12,13 @@
     transition: all linear 0.3s;
 }
 
-.icon_btn {
+.stroke {
+    stroke: var(--black);
+    transition: all linear 0.3s;
+}
+
+.fill {
+    fill: var(--black);
     transition: all linear 0.3s;
 }
 
@@ -20,6 +26,10 @@
     background-color: var(--black);
 }
 
-.icon_button:hover .icon_btn {
+.icon_button:hover .stroke {
     stroke: var(--white);
+}
+
+.icon_button:hover .fill {
+    fill: var(--white);
 }

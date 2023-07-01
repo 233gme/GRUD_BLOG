@@ -1,9 +1,9 @@
 import './App.css';
 
 import { Route, Routes } from 'react-router-dom';
-import { useTheme } from './components/shared/providers';
+import { useTheme } from 'shared/providers';
 
-import Header from 'components/widgets/Header';
+import Header from 'widgets/Header';
 import { Home, NotFound } from './pages';
 
 function App() {

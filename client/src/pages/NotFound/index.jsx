@@ -1,5 +1,5 @@
 import './styles.css';
-import LinkButton from 'components/shared/ui/LinkButton';
+import LinkButton from 'shared/ui/LinkButton';
 
 const NotFound = () => {
   return (
