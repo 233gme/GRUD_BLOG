@@ -15,5 +15,6 @@
 }
 
 .btn:hover {
-    box-shadow: var(--black) 1px 1px;
+    color: var(--white);
+    background-color: var(--black);
 }
