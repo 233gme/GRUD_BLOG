@@ -1,20 +1,22 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
-
 import './index.css';
-
+import ReactDOM from 'react-dom/client';
 import App from './App';
-import ThemeProvider from './components/shared/providers/ThemeProvider/ThemeProvider';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './shared/config/redux/store';
+import 'shared/config/i18n/i18n';
+import { ErrorBoundary, ThemeProvider } from './shared/providers';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  // eslint-disable-next-line react/jsx-filename-extension
-  <React.StrictMode>
+  <ErrorBoundary>
     <BrowserRouter>
       <ThemeProvider>
-        <App/>
+        <Provider store={store}>
+          <App/>
+        </Provider>
       </ThemeProvider>
     </BrowserRouter>
-  </React.StrictMode>,
+  </ErrorBoundary>
 );
