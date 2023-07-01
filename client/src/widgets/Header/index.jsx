@@ -6,6 +6,7 @@ import ThemeSwitcher from 'widgets/ThemeSwitcher';
 import LangSwitcher from 'widgets/LangSwitcher';
 import IconButton from 'shared/ui/IconButton';
 import { ReactComponent as MenuIcon } from 'shared/assets/icons/menu.svg';
+import { ReactComponent as CloseMenuIcon } from 'shared/assets/icons/x.svg';
 
 const Header = ({ width }) => {
   const [mobile, setMobile] = useState(false);
@@ -31,6 +32,13 @@ const Header = ({ width }) => {
         <ThemeSwitcher/>
         <Button type={'pink'}>{'SingUp'}</Button>
         <Button>{'LogIn'}</Button>
+        {
+          mobile ? (
+            <IconButton action={handleMenu}>
+              <CloseMenuIcon/>
+            </IconButton>
+          ) : null
+        }
       </div>
       <div className="menu_button">
         <IconButton action={handleMenu}>

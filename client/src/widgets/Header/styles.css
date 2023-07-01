@@ -19,14 +19,17 @@
     position: absolute;
     background-color: var(--white);
     z-index: 1000;
-    width: 100%;
+    width: 200px;
     top: 0;
-    left: 0;
-    transition: top ease-in 0.3s;
+    right: 0;
+    transition: right ease-in 0.3s;
+    border-left: 1px solid var(--black);
+    border-bottom: 1px solid var(--black);
+    border-radius: 0 0 0 var(--r-block);
 }
 
 .mobile_btn_block {
-    top: -300px;
+    right: -300px;
 }
 
 @media screen and (min-width: 1024px) {
@@ -42,6 +45,11 @@
         flex-direction: row;
         padding: 0;
         width: auto;
+        border: none;
+    }
+
+    .btn_block:last-child {
+        display: none;
     }
 
     .menu_button {
