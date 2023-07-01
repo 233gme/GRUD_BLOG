@@ -1,14 +1,21 @@
+.header_container {
+    height: 50px;
+    padding-top: 0;
+    padding-bottom: 0;
+    overflow: visible;
+}
+
 .header {
-    padding-bottom: 10px;
-    padding-top: 10px;
+    height: 50px;
+    padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid var(--black);
-    height: 50px;
-    margin-top: 0;
+    border-left: 1px solid var(--black);
+    border-right: 1px solid var(--black);
+    border-radius: 0 0 var(--r-block) var(--r-block);
     position: relative;
-    overflow: visible;
 }
 
 .btn_block {
@@ -19,9 +26,9 @@
     position: absolute;
     background-color: var(--white);
     z-index: 1000;
-    width: 200px;
+    width: 220px;
     top: 0;
-    right: 0;
+    right: -10px;
     transition: right ease-in 0.3s;
     border-left: 1px solid var(--black);
     border-bottom: 1px solid var(--black);
@@ -33,15 +40,19 @@
 }
 
 @media screen and (min-width: 1024px) {
+    .header_container {
+        margin-top: 10px;
+        height: 60px;
+    }
+
     .header {
         height: 60px;
-        margin-top: 10px;
         border: 1px solid var(--black);
         border-radius: var(--r-block);
     }
 
     .btn_block {
-        position: relative;
+        position: static;
         flex-direction: row;
         padding: 0;
         width: auto;

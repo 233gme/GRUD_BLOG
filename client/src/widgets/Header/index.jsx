@@ -25,25 +25,27 @@ const Header = ({ width }) => {
   const headerBtnClass = `btn_block ${mobile ? hideMenu ? 'mobile_btn_block' : '' : ''}`;
 
   return (
-    <div className="header container">
-      <Link to="/"><h1>BLOG</h1></Link>
-      <div className={headerBtnClass}>
-        <LangSwitcher/>
-        <ThemeSwitcher/>
-        <Button type={'pink'}>{'SingUp'}</Button>
-        <Button>{'LogIn'}</Button>
-        {
-          mobile ? (
-            <IconButton action={handleMenu}>
-              <CloseMenuIcon/>
-            </IconButton>
-          ) : null
-        }
-      </div>
-      <div className="menu_button">
-        <IconButton action={handleMenu}>
-          <MenuIcon/>
-        </IconButton>
+    <div className="container header_container">
+      <div className="header">
+        <Link to="/"><h1>BLOG</h1></Link>
+        <div className={headerBtnClass}>
+          <LangSwitcher/>
+          <ThemeSwitcher/>
+          <Button type={'pink'}>{'SingUp'}</Button>
+          <Button>{'LogIn'}</Button>
+          {
+            mobile ? (
+              <IconButton action={handleMenu}>
+                <CloseMenuIcon/>
+              </IconButton>
+            ) : null
+          }
+        </div>
+        <div className="menu_button">
+          <IconButton action={handleMenu}>
+            <MenuIcon/>
+          </IconButton>
+        </div>
       </div>
     </div>
   );
