@@ -11,21 +11,6 @@
     background-color: transparent;
 }
 
-.round {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--white);
-}
-
-.round:hover {
-    background-color: var(--black);
-}
-
 .outline {
     background-color: var(--white);
 }

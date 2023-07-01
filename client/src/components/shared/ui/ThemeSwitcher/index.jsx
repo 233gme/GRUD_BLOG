@@ -1,23 +1,19 @@
-import './styles.css';
 import { ReactComponent as SunIcon } from 'components/shared/assets/icons/sun.svg';
 import { ReactComponent as MoonIcon } from 'components/shared/assets/icons/moon.svg';
-import Button from 'components/shared/ui/Button';
 import { useTheme } from 'components/shared/providers';
+import IconButton from '../IconButton';
 
 const ThemeSwitcher = () => {
   const { theme, toggleTheme } = useTheme();
-  
+
   return (
-    <Button
-      action={toggleTheme}
-      type={'round'}
-    >
+    <IconButton action={toggleTheme}>
       {
         theme === 'light'
           ? <MoonIcon/>
           : <SunIcon/>
       }
-    </Button>
+    </IconButton>
   );
 };
 
