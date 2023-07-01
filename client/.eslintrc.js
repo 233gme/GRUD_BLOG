@@ -22,7 +22,6 @@ module.exports = {
     'react',
   ],
   rules: {
-    // 'react/jsx-curly-spacing': [2, 'always'],
     'object-curly-spacing': ['error', 'always'],
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
