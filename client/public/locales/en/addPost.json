@@ -7,5 +7,6 @@
   "tags_placeholder": "Add tags...",
   "text_placeholder": "Add post text...",
   "send_btn": "Create an article",
-  "edit_btn": "Save article"
+  "edit_btn": "Save article",
+  "error": "Couldn't add the article, try again!"
 }

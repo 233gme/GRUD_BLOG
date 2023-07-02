@@ -44,3 +44,7 @@
     color: var(--black);
     background-color: var(--white);
 }
+
+.add_post_err_msg {
+    color: var(--pink);
+}

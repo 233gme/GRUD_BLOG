@@ -7,5 +7,6 @@
   "tags_placeholder": "Aggiungi tag...",
   "text_placeholder": "Aggiungi testo post...",
   "send_btn": "Creare un articolo",
-  "edit_btn": "Salva articolo"
+  "edit_btn": "Salva articolo",
+  "error": "Impossibile aggiungere l'articolo, riprova!"
 }
