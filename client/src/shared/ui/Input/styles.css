@@ -1,0 +1,9 @@
+.post_input > input {
+    padding: 10px;
+    font-weight: 600;
+    font-size: 18px;
+    background-color: transparent;
+    border: 1px solid var(--black);
+    border-radius: var(--r-section);
+    width: 100%;
+}
