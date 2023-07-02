@@ -1,0 +1,4 @@
+.image {
+    filter: var(--image-filter);
+    object-fit: cover;
+}
