@@ -21,22 +21,14 @@ const Home = () => {
 
   return (
     <div className="container">
-      {t('home')}
       <div className="nav_container">
-        <div className="nav">
-          <span>new</span>
-          <span></span>
-        </div>
-        <div className="tags_container">
-          #tags
-        </div>
       </div>
       <div className="posts_container">
         {
           isPostLoading ? [...Array(5)] : posts.items.map((post, index) => {
             return isPostLoading
               ? <PostLoader key={index}/>
-              : <Post key={post._id} id={post._id} text={post.text} title={post.title} user={post.user}/>;
+              : <Post key={post._id} post={post} isEditable={userData?._id === post.user._id}/>;
           })
         }
       </div>

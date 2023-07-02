@@ -26,13 +26,10 @@ const FullPost = () => {
     return <PageLoader/>;
   }
 
-  // console.log(data);
-
   return (
     <div className={'container'}>
       <Image src={data.imageUrl} alt={data.title}/>
       <h2>{data.title}</h2>
-
       <ReactMarkdown>
         {data.text}
       </ReactMarkdown>
