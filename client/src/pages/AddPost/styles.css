@@ -1,0 +1,46 @@
+.add_post {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.add_post > h2 {
+    margin: 0 auto;
+}
+
+.add_post_upload_btn {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+}
+
+.add_post_upload_btn > button {
+    width: 100%;
+}
+
+.add_post_mde {
+    width: 100%;
+}
+
+.editor-toolbar > button {
+    color: var(--black);
+    transition: all linear 0.3s;
+}
+
+.editor-toolbar > button:hover {
+    color: var(--white);
+}
+
+.editor-toolbar {
+    border-bottom: 1px solid var(--black);
+}
+
+.EasyMDEContainer {
+    border: 1px solid var(--black);
+    border-radius: var(--r-section);
+}
+
+.EasyMDEContainer > .cm-s-easymde {
+    color: var(--black);
+    background-color: var(--white);
+}

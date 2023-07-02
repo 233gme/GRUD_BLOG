@@ -2,7 +2,7 @@ import './App.css';
 import { useTheme } from 'shared/providers';
 import Header from 'widgets/Header';
 import AppRouter from 'shared/providers/AppRouter/AppRouter';
-import useElementWidth from 'shared/hoooks/useElementWidth/useElementWidth';
+import useElementWidth from 'shared/hooks/useElementWidth/useElementWidth';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchLoginMe, selectIsAuth } from 'shared/config/redux/slices/auth';

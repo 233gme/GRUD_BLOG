@@ -25,6 +25,7 @@ module.exports = {
     'object-curly-spacing': ['error', 'always'],
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
+    'react/no-children-prop': 'off',
     semi: ['error', 'always'],
     quotes: ['error', 'single'],
     'max-len': [2, {

@@ -1,0 +1,11 @@
+{
+  "title": "Aggiungi nuovo post",
+  "img_btn_change": "Cambia immagine",
+  "img_btn_remove": "Rimuovi immagine",
+  "img_btn_upload": "Carica immagine",
+  "title_placeholder": "Aggiungi titolo...",
+  "tags_placeholder": "Aggiungi tag...",
+  "text_placeholder": "Aggiungi testo post...",
+  "send_btn": "Creare un articolo",
+  "edit_btn": "Salva articolo"
+}

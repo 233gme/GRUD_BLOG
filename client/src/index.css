@@ -10,6 +10,7 @@
 }
 
 .dark {
+    --image-filter: grayscale(50%);
     --white: #08182b;
     --black: #f4f4f4;
     --pink: #E73A38;
@@ -19,6 +20,7 @@
 }
 
 .light {
+    --image-filter: grayscale(10%);
     --white: #f4f4f4;
     --black: #08182b;
     --pink: #ee2560;
@@ -46,26 +48,30 @@ h1 {
     font-weight: 600;
 }
 
+h2 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
 .container {
-    height: calc(100vh - 90px);
-    padding: 10px 20px;
-    margin: 10px auto;
-    overflow: hidden;
+    padding: 10px 0;
+    margin: 0 auto;
 }
 
 @media screen and (min-width: 480px) {
     .container {
-        padding: 40px 30px;
+        padding: 20px 10px;
     }
 }
 
 @media screen and (min-width: 768px) {
     .container {
-        padding: 60px 30px;
+        padding: 40px 20px;
     }
 
     h2 {
-        font-size: 38px;
+        font-size: 18px;
     }
 }
 
@@ -81,7 +87,7 @@ h1 {
 
 
     h2 {
-        font-size: 40px;
+        font-size: 22px;
         font-weight: 500;
     }
 }
@@ -89,6 +95,7 @@ h1 {
 
 @media screen and (min-width: 1200px) {
     .container {
+        padding: 60px 30px;
         max-width: 1140px;
     }
 
@@ -98,7 +105,7 @@ h1 {
     }
 
     h2 {
-        font-size: 64px;
+        font-size: 26px;
         font-weight: 700;
     }
 }

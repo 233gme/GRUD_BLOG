@@ -1,0 +1,11 @@
+{
+  "title": "Add new post",
+  "img_btn_change": "Change image",
+  "img_btn_remove": "Remove image",
+  "img_btn_upload": "Upload image",
+  "title_placeholder": "Add title...",
+  "tags_placeholder": "Add tags...",
+  "text_placeholder": "Add post text...",
+  "send_btn": "Create an article",
+  "edit_btn": "Save article"
+}

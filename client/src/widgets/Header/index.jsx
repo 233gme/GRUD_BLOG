@@ -8,6 +8,8 @@ import { ReactComponent as MenuIcon } from 'shared/assets/icons/menu.svg';
 import { ReactComponent as CloseMenuIcon } from 'shared/assets/icons/x.svg';
 import { ReactComponent as PowerIcon } from 'shared/assets/icons/power.svg';
 import { ReactComponent as UserIcon } from 'shared/assets/icons/user.svg';
+import { ReactComponent as PlusIcon } from 'shared/assets/icons/plus.svg';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { logout, selectIsAuth } from 'shared/config/redux/slices/auth';
 
@@ -35,8 +37,12 @@ const Header = ({ width }) => {
     window.localStorage.removeItem('token');
   };
 
-  const onLogIn = () => {
+  const onLogInPage = () => {
     navigator('/login');
+  };
+
+  const onAddPostPage = () => {
+    navigator('/posts/create');
   };
 
   return (
@@ -46,9 +52,17 @@ const Header = ({ width }) => {
         <div className={headerBtnClass}>
           <LangSwitcher/>
           <ThemeSwitcher/>
+          {isAuth ? (
+            <IconButton action={onAddPostPage}>
+              <PlusIcon/>
+            </IconButton>
+          ) : null
+          }
           {
             !isAuth ? (
-              <IconButton action={onLogIn}><UserIcon/></IconButton>
+              <IconButton action={onLogInPage}>
+                <UserIcon/>
+              </IconButton>
             ) : (
               <IconButton action={onClickLogOut}>
                 <PowerIcon/>
