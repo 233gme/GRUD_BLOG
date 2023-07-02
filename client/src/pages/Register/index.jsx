@@ -3,22 +3,22 @@ import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchLogin, selectIsAuth } from 'shared/config/redux/slices/auth';
+import { fetchRegister, selectIsAuth } from 'shared/config/redux/slices/auth';
 
-const Login = () => {
-  const [loginError, setLoginError] = useState(false);
+const Register = () => {
+  const [registerError, setRegisterError] = useState(false);
   const [formData, setFormData] = useState({});
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isAuth = useSelector(selectIsAuth);
-  const { t } = useTranslation('login');
+  const { t } = useTranslation('register');
 
   if (isAuth) {
     navigate('/');
   }
 
   const handleChange = (event) => {
-    setLoginError(false);
+    setRegisterError(false);
     setFormData(prevState => ({
       ...prevState,
       [event.target.name]: event.target.value,
@@ -27,10 +27,10 @@ const Login = () => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    const data = await dispatch(fetchLogin(formData));
+    const data = await dispatch(fetchRegister(formData));
     if (data?.error) {
       console.warn(data.error.message);
-      return setLoginError(true);
+      return setRegisterError(true);
     }
 
     if ('token' in data.payload) {
@@ -39,10 +39,17 @@ const Login = () => {
   };
 
   return (
-    <div className="container login">
-      <div className="login_form">
+    <div className="container register">
+      <div className="register_form">
         <h2>{t('account')}</h2>
         <form onSubmit={onSubmit}>
+          <input
+            onChange={handleChange}
+            placeholder={t('name')}
+            type={'text'}
+            name={'fullName'}
+            required
+          />
           <input
             onChange={handleChange}
             placeholder={t('email')}
@@ -52,23 +59,30 @@ const Login = () => {
           />
           <input
             onChange={handleChange}
+            placeholder={t('mobile')}
+            type={'text'}
+            name={'mobilePhone'}
+            required
+          />
+          <input
+            onChange={handleChange}
             placeholder={t('password')}
             type={'password'}
             name={'password'}
             required
           />
-          <button type='submit'>{t('login')}</button>
+          <button type='submit'>{t('register')}</button>
         </form>
         <span>-- {t('or')} --</span>
-        <Link to={'/register'}>{t('register')}</Link>
+        <Link to={'/login'}>{t('login')}</Link>
         {
-          loginError
-            ? <span className={'error_message'}>{t('error')}</span>
-            : null
+          registerError ? (
+            <span className={'error_message'}>{t('error')}</span>
+          ) : null
         }
       </div>
     </div>
   );
 };
 
-export default Login;
+export default Register;

@@ -1,0 +1,11 @@
+{
+  "account": "Register your Account",
+  "name": "Full Name",
+  "email": "E-mail",
+  "mobile": "Mobile phone",
+  "password": "Password",
+  "login": "login",
+  "or": "or",
+  "register": "Register",
+  "error": "Something went wrong, try again!"
+}

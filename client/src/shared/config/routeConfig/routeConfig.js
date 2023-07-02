@@ -1,6 +1,4 @@
-import { Home, NotFound } from 'pages';
-import FullPost from '../../../pages/FullPost';
-import Login from '../../../pages/Login';
+import { FullPost, Home, Login, NotFound, Register } from 'pages';
 
 export const routeConfig = {
   home: {
@@ -14,6 +12,10 @@ export const routeConfig = {
   login: {
     path: '/login',
     element: <Login/>
+  },
+  register: {
+    path: '/register',
+    element: <Register/>
   },
   not_found: {
     path: '*',

@@ -4,5 +4,6 @@
   "password": "Password",
   "login": "LogIn",
   "or": "o",
-  "register": "registrare"
+  "register": "registrare",
+  "error": "Email o password non sono disponibili"
 }

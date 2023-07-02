@@ -1,17 +1,23 @@
 import { useEffect, useState } from 'react';
 import './styles.css';
-import { Link } from 'react-router-dom';
-import Button from 'shared/ui/Button';
+import { Link, useNavigate } from 'react-router-dom';
 import ThemeSwitcher from 'widgets/ThemeSwitcher';
 import LangSwitcher from 'widgets/LangSwitcher';
 import IconButton from 'shared/ui/IconButton';
 import { ReactComponent as MenuIcon } from 'shared/assets/icons/menu.svg';
 import { ReactComponent as CloseMenuIcon } from 'shared/assets/icons/x.svg';
+import { ReactComponent as PowerIcon } from 'shared/assets/icons/power.svg';
+import { ReactComponent as UserIcon } from 'shared/assets/icons/user.svg';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout, selectIsAuth } from 'shared/config/redux/slices/auth';
 
 const Header = ({ width }) => {
+  const isAuth = useSelector(selectIsAuth);
+  const dispatch = useDispatch();
   const [mobile, setMobile] = useState(false);
   const [hideMenu, setHideMenu] = useState(true);
   const handleMenu = () => setHideMenu(!hideMenu);
+  const navigator = useNavigate();
 
   useEffect(() => {
     if (1024 > width) {
@@ -24,6 +30,15 @@ const Header = ({ width }) => {
 
   const headerBtnClass = `btn_block ${mobile ? hideMenu ? 'mobile_btn_block' : '' : ''}`;
 
+  const onClickLogOut = () => {
+    dispatch(logout());
+    window.localStorage.removeItem('token');
+  };
+
+  const onLogIn = () => {
+    navigator('/login');
+  };
+
   return (
     <div className="container header_container">
       <div className="header">
@@ -31,8 +46,15 @@ const Header = ({ width }) => {
         <div className={headerBtnClass}>
           <LangSwitcher/>
           <ThemeSwitcher/>
-          <Button type={'pink'}>{'SingUp'}</Button>
-          <Button>{'LogIn'}</Button>
+          {
+            !isAuth ? (
+              <IconButton action={onLogIn}><UserIcon/></IconButton>
+            ) : (
+              <IconButton action={onClickLogOut}>
+                <PowerIcon/>
+              </IconButton>
+            )
+          }
           {
             mobile ? (
               <IconButton action={handleMenu}>
