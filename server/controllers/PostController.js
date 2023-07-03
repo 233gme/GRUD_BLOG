@@ -32,26 +32,17 @@ export const getAllPosts = async (req, res) => {
   }
 };
 
-export const getAllNewPosts = async (req, res) => {
+export const getSortedPosts = async (req, res) => {
   try {
-    const posts = await PostModel.find().sort({createdAt: -1}).populate('user', 'fullName').exec();
+    const sortby = req.params.sortby;
+    const sortItem = sortby === 'new' ? {createdAt: -1} : {viewsCount: -1};
+
+    const posts = await PostModel.find().sort(sortItem).populate('user', 'fullName').exec();
     res.json(posts);
   } catch (err) {
     console.log(err);
     res.status(500).json({
       message: 'Can\'t get all new posts'
-    });
-  }
-};
-
-export const getAllMostViewedPosts = async (req, res) => {
-  try {
-    const posts = await PostModel.find().sort({viewsCount: -1}).populate('user', 'fullName').exec();
-    res.json(posts);
-  } catch (err) {
-    console.log(err);
-    res.status(500).json({
-      message: 'Can\'t get all most viewed posts'
     });
   }
 };
@@ -125,8 +116,15 @@ export const updatePost = async (req, res) => {
 
 export const getLastTags = async (req, res) => {
   try {
-    const posts = await PostModel.find().limit(5).exec();
-    const tags = posts.map(post => post.tags).flat().slice(0, 5);
+    const posts = await PostModel.find().limit(10).exec();
+    const tags = posts
+      .map(post => post.tags)
+      .flat()
+      .filter(tag => Boolean(tag))
+      .reduce((acc, item) => {
+        return acc.includes(item) ? acc : [...acc, item];
+      }, [])
+      .slice(0, 5);
 
     res.json(tags);
   } catch (err) {

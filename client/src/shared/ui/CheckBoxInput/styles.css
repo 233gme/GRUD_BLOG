@@ -1,0 +1,21 @@
+.checkbox_input {
+    padding: 5px 9px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--blue);
+    cursor: pointer;
+    transition: all linear 0.3s;
+    letter-spacing: 0.5px;
+    background-color: var(--white);
+}
+
+.checkbox_input:hover {
+    color: var(--white);
+    background-color: var(--blue);
+}
+
+.checkbox_input_checked {
+    color: var(--white);
+    background-color: var(--blue);
+}

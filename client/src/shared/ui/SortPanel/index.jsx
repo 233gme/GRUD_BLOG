@@ -1,5 +1,5 @@
 import './styles.css';
-import { fetchMostViewedPosts, fetchNewPosts, fetchPosts } from 'shared/config/redux/slices/posts';
+import { fetchPosts, fetchSortedPosts } from 'shared/config/redux/slices/posts';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { RadioInput } from 'shared/ui';
@@ -8,8 +8,8 @@ const SortPanel = ({ sort }) => {
   const { t } = useTranslation('navPannel');
   const dispatch = useDispatch();
   const onGetAllPosts = () => dispatch(fetchPosts());
-  const onGetNewPosts = () => dispatch(fetchNewPosts());
-  const onGetMostViewedPosts = () => dispatch(fetchMostViewedPosts());
+  const onGetNewPosts = () => dispatch(fetchSortedPosts('new'));
+  const onGetMostViewedPosts = () => dispatch(fetchSortedPosts('views'));
 
   return (
     <div className="sort_container">

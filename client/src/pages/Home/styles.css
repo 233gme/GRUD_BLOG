@@ -8,8 +8,27 @@
     gap: 20px
 }
 
+.nav_container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-bottom: 10px;
+}
+
 @media screen and (min-width: 768px) {
     .posts_container {
         gap: 40px;
+    }
+}
+
+@media screen and (min-width: 480px) {
+    .nav_container {
+        padding-bottom: 20px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .nav_container {
+        padding-bottom: 30px;
     }
 }

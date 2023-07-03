@@ -7,5 +7,19 @@ import Image from './Image';
 import PostDesc from './PostDesc';
 import SortPanel from './SortPanel';
 import RadioInput from './RadioInput';
+import CheckBoxInput from './CheckBoxInput';
+import TagsPanel from './TagsPanel';
 
-export { Button, IconButton, Input, LinkButton, Loader, Image, PostDesc, SortPanel, RadioInput };
+export {
+  Button,
+  IconButton,
+  Input,
+  LinkButton,
+  Loader,
+  Image,
+  PostDesc,
+  SortPanel,
+  RadioInput,
+  CheckBoxInput,
+  TagsPanel
+};

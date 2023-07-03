@@ -6,13 +6,8 @@ export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
   return data;
 });
 
-export const fetchNewPosts = createAsyncThunk('posts/fetchNewPosts', async () => {
-  const { data } = await axios.get('/posts/new');
-  return data;
-});
-
-export const fetchMostViewedPosts = createAsyncThunk('posts/fetchMostViewedPosts', async () => {
-  const { data } = await axios.get('/posts/views');
+export const fetchSortedPosts = createAsyncThunk('posts/fetchSortedPosts', async (sortby) => {
+  const { data } = await axios.get(`/posts/sort/${sortby}`);
   return data;
 });
 
@@ -35,7 +30,7 @@ const initialState = {
     status: 'loading'
   },
   sort: {
-    value: 'all',
+    value: null,
     status: 'loading'
   },
 };
@@ -60,30 +55,16 @@ const postsSlice = createSlice({
       state.posts.status = 'error';
     },
     // get new posts
-    [fetchNewPosts.pending]: (state, action) => {
+    [fetchSortedPosts.pending]: (state, action) => {
       state.posts.items = [];
       state.posts.status = 'loading';
     },
-    [fetchNewPosts.fulfilled]: (state, action) => {
+    [fetchSortedPosts.fulfilled]: (state, action) => {
       state.posts.items = action.payload;
-      state.sort.value = 'new';
+      state.sort.value = action.meta.arg;
       state.posts.status = 'loaded';
     },
-    [fetchNewPosts.rejected]: (state, action) => {
-      state.posts.items = [];
-      state.posts.status = 'error';
-    },
-    // get most viewed posts
-    [fetchMostViewedPosts.pending]: (state, action) => {
-      state.posts.items = [];
-      state.posts.status = 'loading';
-    },
-    [fetchMostViewedPosts.fulfilled]: (state, action) => {
-      state.posts.items = action.payload;
-      state.sort.value = 'views';
-      state.posts.status = 'loaded';
-    },
-    [fetchMostViewedPosts.rejected]: (state, action) => {
+    [fetchSortedPosts.rejected]: (state, action) => {
       state.posts.items = [];
       state.posts.status = 'error';
     },
