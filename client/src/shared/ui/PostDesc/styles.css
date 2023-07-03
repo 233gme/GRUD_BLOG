@@ -1,0 +1,18 @@
+.post_desc_icon {
+    stroke: var(--black);
+}
+
+.post_desc_data {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.post_desc_data > span {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: .5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}

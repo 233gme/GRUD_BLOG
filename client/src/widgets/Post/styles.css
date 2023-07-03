@@ -44,22 +44,3 @@
     height: 20px;
     text-overflow: ellipsis;
 }
-
-.post_item_icon {
-    stroke: var(--black);
-}
-
-.post_item_desc_data {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.post_item_desc_data > span {
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: .5px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
