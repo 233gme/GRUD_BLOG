@@ -5,5 +5,7 @@ import LinkButton from './LinkButton';
 import Loader from './Loader';
 import Image from './Image';
 import PostDesc from './PostDesc';
+import SortPanel from './SortPanel';
+import RadioInput from './RadioInput';
 
-export { Button, IconButton, Input, LinkButton, Loader, Image, PostDesc };
+export { Button, IconButton, Input, LinkButton, Loader, Image, PostDesc, SortPanel, RadioInput };

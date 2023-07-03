@@ -1,0 +1,17 @@
+.sort_container {
+    display: flex;
+    gap: 10px;
+    padding-bottom: 10px;
+}
+
+@media screen and (min-width: 480px) {
+    .sort_container {
+        padding-bottom: 20px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .sort_container {
+        padding-bottom: 30px;
+    }
+}

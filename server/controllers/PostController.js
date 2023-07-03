@@ -32,6 +32,30 @@ export const getAllPosts = async (req, res) => {
   }
 };
 
+export const getAllNewPosts = async (req, res) => {
+  try {
+    const posts = await PostModel.find().sort({createdAt: -1}).populate('user', 'fullName').exec();
+    res.json(posts);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({
+      message: 'Can\'t get all new posts'
+    });
+  }
+};
+
+export const getAllMostViewedPosts = async (req, res) => {
+  try {
+    const posts = await PostModel.find().sort({viewsCount: -1}).populate('user', 'fullName').exec();
+    res.json(posts);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({
+      message: 'Can\'t get all most viewed posts'
+    });
+  }
+};
+
 export const getPost = async (req, res) => {
   try {
     const postId = req.params.id;
@@ -111,4 +135,4 @@ export const getLastTags = async (req, res) => {
       message: 'Can\'t get last tags'
     });
   }
-}
+};

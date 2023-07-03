@@ -1,0 +1,22 @@
+.radio_input {
+    padding: 2px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--yellow);
+    border: 1px solid var(--yellow);
+    cursor: pointer;
+    transition: all linear 0.3s;
+    letter-spacing: 0.5px;
+    background-color: var(--white);
+}
+
+.radio_input:hover {
+    color: var(--white);
+    background-color: var(--yellow);
+}
+
+.radio_input_checked {
+    color: var(--white);
+    background-color: var(--yellow);
+}

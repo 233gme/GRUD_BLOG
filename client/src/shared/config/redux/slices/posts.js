@@ -6,6 +6,16 @@ export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
   return data;
 });
 
+export const fetchNewPosts = createAsyncThunk('posts/fetchNewPosts', async () => {
+  const { data } = await axios.get('/posts/new');
+  return data;
+});
+
+export const fetchMostViewedPosts = createAsyncThunk('posts/fetchMostViewedPosts', async () => {
+  const { data } = await axios.get('/posts/views');
+  return data;
+});
+
 export const fetchTags = createAsyncThunk('posts/fetchTags', async () => {
   const { data } = await axios.get('/posts/tags');
   return data;
@@ -24,6 +34,10 @@ const initialState = {
     items: [],
     status: 'loading'
   },
+  sort: {
+    value: 'all',
+    status: 'loading'
+  },
 };
 
 const postsSlice = createSlice({
@@ -38,9 +52,38 @@ const postsSlice = createSlice({
     },
     [fetchPosts.fulfilled]: (state, action) => {
       state.posts.items = action.payload;
+      state.sort.value = 'all';
       state.posts.status = 'loaded';
     },
     [fetchPosts.rejected]: (state, action) => {
+      state.posts.items = [];
+      state.posts.status = 'error';
+    },
+    // get new posts
+    [fetchNewPosts.pending]: (state, action) => {
+      state.posts.items = [];
+      state.posts.status = 'loading';
+    },
+    [fetchNewPosts.fulfilled]: (state, action) => {
+      state.posts.items = action.payload;
+      state.sort.value = 'new';
+      state.posts.status = 'loaded';
+    },
+    [fetchNewPosts.rejected]: (state, action) => {
+      state.posts.items = [];
+      state.posts.status = 'error';
+    },
+    // get most viewed posts
+    [fetchMostViewedPosts.pending]: (state, action) => {
+      state.posts.items = [];
+      state.posts.status = 'loading';
+    },
+    [fetchMostViewedPosts.fulfilled]: (state, action) => {
+      state.posts.items = action.payload;
+      state.sort.value = 'views';
+      state.posts.status = 'loaded';
+    },
+    [fetchMostViewedPosts.rejected]: (state, action) => {
       state.posts.items = [];
       state.posts.status = 'error';
     },

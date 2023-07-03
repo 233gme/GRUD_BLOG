@@ -56,6 +56,8 @@ app.get('/posts/tags', postCreateValidation, PostController.getLastTags);
 
 // posts
 app.get('/posts', postCreateValidation, PostController.getAllPosts);
+app.get('/posts/new', postCreateValidation, PostController.getAllNewPosts);
+app.get('/posts/views', postCreateValidation, PostController.getAllMostViewedPosts);
 app.get('/posts/:id', postCreateValidation, PostController.getPost);
 app.post(
   '/posts',
