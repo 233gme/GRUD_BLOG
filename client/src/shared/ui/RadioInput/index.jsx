@@ -1,7 +1,8 @@
 import './styles.css';
 
-const RadioInput = ({ id, title, action, checked }) => {
-  const checkedInput = checked ? 'radio_input radio_input_checked' : 'radio_input';
+const RadioInput = ({ id, title, action, checked, type }) => {
+  const mainClassName = type === 'round' ? 'radio_input_round' : 'radio_input';
+  const checkedInput = checked ? `${mainClassName} ${mainClassName}_checked` : mainClassName;
 
   return (
     <>

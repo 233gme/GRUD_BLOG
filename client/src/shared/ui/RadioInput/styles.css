@@ -8,7 +8,6 @@
     cursor: pointer;
     transition: all linear 0.3s;
     letter-spacing: 0.5px;
-    background-color: var(--white);
 }
 
 .radio_input:hover {
@@ -19,4 +18,30 @@
 .radio_input_checked {
     color: var(--white);
     background-color: var(--yellow);
+}
+
+.radio_input_round {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--black);
+    border: 1px solid var(--black);
+    cursor: pointer;
+    transition: all linear 0.3s;
+}
+
+.radio_input_round:hover {
+    color: var(--white);
+    background-color: var(--black);
+}
+
+.radio_input_round_checked {
+    color: var(--white);
+    background-color: var(--black);
 }
