@@ -22,6 +22,8 @@ module.exports = {
     'react',
   ],
   rules: {
+    'no-inline-comments': 'error',
+    'no-console': ['error', { allow: ['warn', 'error'] }],
     'object-curly-spacing': ['error', 'always'],
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
