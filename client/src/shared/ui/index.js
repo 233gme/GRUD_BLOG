@@ -9,6 +9,7 @@ import SortPanel from './SortPanel';
 import RadioInput from './RadioInput';
 import CheckBoxInput from './CheckBoxInput';
 import TagsPanel from './TagsPanel';
+import PaginationPanel from './PaginationPanel';
 
 export {
   Button,
@@ -21,5 +22,6 @@ export {
   SortPanel,
   RadioInput,
   CheckBoxInput,
-  TagsPanel
+  TagsPanel,
+  PaginationPanel,
 };

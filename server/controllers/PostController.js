@@ -20,10 +20,25 @@ export const createPost = async (req, res) => {
   }
 };
 
-export const getAllPosts = async (req, res) => {
+export const getPosts = async (req, res) => {
   try {
-    const posts = await PostModel.find().populate('user', 'fullName').exec();
-    res.json(posts);
+    const page = req.query.page || 0;
+    const limit = 6;
+
+    const posts = await PostModel
+      .find()
+      .skip(page * limit)
+      .limit(limit)
+      .populate('user', 'fullName')
+      .exec();
+
+    const count = await PostModel.count();
+
+    res.json({
+      posts,
+      totalPages: Math.ceil(count / limit),
+      currentPage: page
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json({

@@ -1,8 +1,9 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'shared/config/axios/axios';
 
-export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
-  const { data } = await axios.get('/posts');
+export const fetchPosts = createAsyncThunk('posts/fetchPosts', async (arg) => {
+  const url = arg ? `/posts?${arg}` : '/posts';
+  const { data } = await axios.get(url);
   return data;
 });
 
@@ -25,12 +26,16 @@ const initialState = {
     items: [],
     status: 'loading'
   },
+  page: {
+    total: null,
+    current: null,
+  },
   tags: {
     items: [],
     status: 'loading'
   },
   sort: {
-    value: null,
+    value: 'all',
     status: 'loading'
   },
 };
@@ -46,7 +51,9 @@ const postsSlice = createSlice({
       state.posts.status = 'loading';
     },
     [fetchPosts.fulfilled]: (state, action) => {
-      state.posts.items = action.payload;
+      state.posts.items = action.payload.posts;
+      state.page.current = action.payload.currentPage;
+      state.page.total = action.payload.totalPages;
       state.sort.value = 'all';
       state.posts.status = 'loaded';
     },

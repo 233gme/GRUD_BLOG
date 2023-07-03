@@ -4,12 +4,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchPosts, fetchTags } from 'shared/config/redux/slices/posts';
 import PostLoader from 'widgets/PostLoader';
 import Post from 'widgets/Post';
-import { SortPanel, TagsPanel } from 'shared/ui';
+import { PaginationPanel, SortPanel, TagsPanel } from 'shared/ui';
 
 const Home = () => {
   const [checkedTags, setCheckedTags] = useState([]);
   const dispatch = useDispatch();
-  const { posts, tags, sort } = useSelector(state => state.posts);
+  const { posts, tags, sort, page } = useSelector(state => state.posts);
   const userData = useSelector(state => state.auth.data);
   const isPostLoading = posts.status === 'loading';
 
@@ -33,6 +33,7 @@ const Home = () => {
           })
         }
       </div>
+      <PaginationPanel pages={page} loading={isPostLoading}/>
     </div>
   );
 };
