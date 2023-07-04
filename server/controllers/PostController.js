@@ -28,15 +28,18 @@ export const getPosts = async (req, res) => {
     const sortby = req.query.sort || 'all';
     const sortValue = sortby === 'new' ? {createdAt: -1} : 'views' ? {viewsCount: -1} : {createdAt: 1};
 
+    const tags = req.query?.tags ? req.query.tags.split(';') : null;
+    const filter = tags ? {tags: {$all: tags}} : {};
+
+    const count = await PostModel.find(filter).count();
+
     const posts = await PostModel
-      .find()
+      .find(filter)
       .sort(sortValue)
       .skip(page * limit)
       .limit(limit)
       .populate('user', 'fullName')
       .exec();
-
-    const count = await PostModel.count();
 
     res.json({
       posts,

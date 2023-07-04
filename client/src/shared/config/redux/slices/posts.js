@@ -23,7 +23,7 @@ const initialState = {
   },
   page: {
     total: null,
-    current: null,
+    current: '0',
   },
   tags: {
     items: [],
