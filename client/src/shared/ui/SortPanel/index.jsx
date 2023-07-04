@@ -1,7 +1,7 @@
 import './styles.css';
 import { useTranslation } from 'react-i18next';
 import { RadioInput } from 'shared/ui';
-import { sortPanelData } from 'shared/lib';
+import { generateUniqueId, sortPanelData } from 'shared/lib';
 
 const SortPanel = ({ sort, action }) => {
   const { t } = useTranslation('navPannel');
@@ -15,7 +15,7 @@ const SortPanel = ({ sort, action }) => {
             <RadioInput
               key={value}
               title={t(title)}
-              id={'sortContainer1'}
+              id={generateUniqueId()}
               action={onGetSortedPosts(value)}
               checked={sort === value}
             />
