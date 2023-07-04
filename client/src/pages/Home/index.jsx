@@ -12,6 +12,14 @@ const Home = () => {
   const { posts, tags, sort, page } = useSelector(state => state.posts);
   const userData = useSelector(state => state.auth.data);
   const isPostLoading = posts.status === 'loading';
+  const fetchPostsWithArg = (arg) => {
+    const stateArgs = {
+      sort: sort.value,
+      page: page.current
+    };
+    const params = new URLSearchParams({ ...stateArgs, ...arg }).toString();
+    dispatch(fetchPosts(params));
+  };
 
   useEffect(() => {
     dispatch(fetchPosts());
@@ -21,7 +29,7 @@ const Home = () => {
   return (
     <div className="container">
       <div className={'nav_container'}>
-        <SortPanel sort={sort.value}/>
+        <SortPanel sort={sort.value} action={fetchPostsWithArg}/>
         <TagsPanel tags={tags} action={setCheckedTags} checked={checkedTags}/>
       </div>
       <div className="posts_container">
@@ -33,7 +41,7 @@ const Home = () => {
           })
         }
       </div>
-      <PaginationPanel pages={page} loading={isPostLoading}/>
+      <PaginationPanel pages={page} loading={isPostLoading} action={fetchPostsWithArg}/>
     </div>
   );
 };

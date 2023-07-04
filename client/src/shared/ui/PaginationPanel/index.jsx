@@ -1,13 +1,10 @@
 import { RadioInput } from 'shared/ui';
 import { generateUniqueId } from 'shared/lib';
-import { fetchPosts } from 'shared/config/redux/slices/posts';
-import { useDispatch } from 'react-redux';
-import PageLoader from '../../../widgets/PageLoader';
+import PageLoader from 'widgets/PageLoader';
 
-const PaginationPanel = ({ pages, loading }) => {
+const PaginationPanel = ({ pages, loading, action }) => {
   const { total, current } = pages;
-  const dispatch = useDispatch();
-  const onPageHandler = (id) => () => dispatch(fetchPosts(`page=${id}`));
+  const onPageHandler = (page) => () => action({ page });
 
   return (
     <div className="pagination_container">

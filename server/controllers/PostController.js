@@ -25,8 +25,12 @@ export const getPosts = async (req, res) => {
     const page = req.query.page || 0;
     const limit = 6;
 
+    const sortby = req.query.sort || 'all';
+    const sortValue = sortby === 'new' ? {createdAt: -1} : 'views' ? {viewsCount: -1} : {createdAt: 1};
+
     const posts = await PostModel
       .find()
+      .sort(sortValue)
       .skip(page * limit)
       .limit(limit)
       .populate('user', 'fullName')
@@ -37,27 +41,13 @@ export const getPosts = async (req, res) => {
     res.json({
       posts,
       totalPages: Math.ceil(count / limit),
-      currentPage: page
+      currentPage: page,
+      sortby: sortby,
     });
   } catch (err) {
     console.log(err);
     res.status(500).json({
-      message: 'Can\'t get all posts'
-    });
-  }
-};
-
-export const getSortedPosts = async (req, res) => {
-  try {
-    const sortby = req.params.sortby;
-    const sortItem = sortby === 'new' ? {createdAt: -1} : {viewsCount: -1};
-
-    const posts = await PostModel.find().sort(sortItem).populate('user', 'fullName').exec();
-    res.json(posts);
-  } catch (err) {
-    console.log(err);
-    res.status(500).json({
-      message: 'Can\'t get all new posts'
+      message: 'Can\'t get posts'
     });
   }
 };
