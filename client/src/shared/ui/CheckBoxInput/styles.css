@@ -3,7 +3,7 @@
     border-radius: 5px;
     font-size: 16px;
     font-weight: 500;
-    color: var(--blue);
+    color: var(--black);
     cursor: pointer;
     transition: all linear 0.3s;
     letter-spacing: 0.5px;
@@ -12,10 +12,29 @@
 
 .checkbox_input:hover {
     color: var(--white);
-    background-color: var(--blue);
+    background-color: var(--yellow);
 }
 
 .checkbox_input_checked {
     color: var(--white);
-    background-color: var(--blue);
+    background-color: var(--yellow);
+}
+
+.checkbox_input_out {
+    padding: 5px 9px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--black);
+    cursor: pointer;
+    transition: all linear 0.3s;
+    letter-spacing: 0.5px;
+}
+
+.checkbox_input_out:hover {
+    color: var(--yellow);
+}
+
+.checkbox_input_out_checked {
+    color: var(--yellow);
 }

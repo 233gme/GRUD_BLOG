@@ -17,6 +17,7 @@ const TagsPanel = ({ tags, action, checked }) => {
         {
           tags.items.map(tag => (
               <CheckBoxInput
+                out={true}
                 key={tag}
                 tag={tag}
                 action={onCheckTag(tag)}

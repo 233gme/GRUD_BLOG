@@ -1,6 +1,8 @@
 :root {
     --r-block: 9px;
     --r-section: 5px;
+    --blue-light: #96C0CE;
+    --blue: #74828F;
 }
 
 * {
@@ -15,7 +17,6 @@
     --black: #f4f4f4;
     --pink: #E73A38;
     --yellow: #FE9000;
-    --blue: #4695d6;
     --bg: #08182b;
 }
 
@@ -25,7 +26,6 @@
     --black: #08182b;
     --pink: #ee2560;
     --yellow: #fecc36;
-    --blue: #45d9fd;
     --bg: #f4f4f4;
 }
 

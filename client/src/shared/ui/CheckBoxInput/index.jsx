@@ -1,7 +1,8 @@
 import './styles.css';
 
-const CheckBoxInput = ({ tag, action, checked }) => {
-  const checkedInput = checked ? 'checkbox_input checkbox_input_checked' : 'checkbox_input';
+const CheckBoxInput = ({ tag, action, checked, out }) => {
+  const className = out ? 'checkbox_input_out' : 'checkbox_input';
+  const checkedInput = checked ? `${className} ${className}_checked` : className;
 
   return (
     <>
