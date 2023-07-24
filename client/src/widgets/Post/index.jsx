@@ -13,10 +13,19 @@ const Post = ({ post, isEditable }) => {
 
   const onRemovePost = () => dispatch(fetchRemovePost(id));
   const onEditPost = () => navigate(`/posts/${id}/edit`);
+  const newTitle = (text) => {
+    if (text.length > 27) {
+      return `${text.substring(0, 29)}...`;
+    } else {
+      return text;
+    }
+  };
 
   return (
     <div className='post_item'>
-      <Image src={imageUrl} alt={title}/>
+      <div className="post_item_img">
+        <Image src={imageUrl} alt={title}/>
+      </div>
       {
         isEditable ? (
           <div className='post_item_btn'>
@@ -26,13 +35,13 @@ const Post = ({ post, isEditable }) => {
         ) : null
       }
       <div className='post_item_desc'>
-        <Link to={`/posts/${id}`}>{title}</Link>
-        <PostDesc
-          userName={user.fullName}
-          createdAt={createdAt}
-          viewsCount={viewsCount}
-        />
+        <Link to={`/posts/${id}`}>{newTitle(title)}</Link>
       </div>
+      <PostDesc
+        userName={user.fullName}
+        createdAt={createdAt}
+        viewsCount={viewsCount}
+      />
     </div>
   );
 };

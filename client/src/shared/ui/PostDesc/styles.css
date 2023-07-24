@@ -4,7 +4,7 @@
 
 .post_desc_data {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     gap: 5px;
 }
 

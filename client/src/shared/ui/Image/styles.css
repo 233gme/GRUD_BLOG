@@ -1,5 +1,5 @@
 .image_block {
     filter: var(--image-filter);
-    object-fit: contain;
+    object-fit: cover;
     width: 100%;
 }
